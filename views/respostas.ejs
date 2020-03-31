@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <%- include('./partials/header') %>
+</head>
+    <body>
+        <%- include('./partials/navbar.ejs') %>
+
+        <div class="container">
+            <h3><%= pergunta.titulo %></h3>
+            <h4><%= pergunta.descricao %></h4>
+            <hr>
+
+            <a href="/responder/<%= pergunta.id %>" class="btn btn-primary mb-4">Adicionar resposta</a>
+
+            <% if(respostas.length == 0){ %>
+                <h4>Sem respostas...</h4>
+                <h4>Seja o primeiro a enviar uma resposta! ;)</h4>
+            <% } else { %>
+                <% respostas.forEach(resposta => { %>
+                    <div class="card mb-2">
+                        <div class="card-body"><%= resposta.corpo %></div>
+                        <div class="card-footer"> - <%= resposta.nome_usuario %></div>
+                    </div>
+                <%})%>    
+            <% } %>
+
+                
+            </div>
+        
+        <%- include('./partials/footer.ejs') %>
+    </body>
+</html>

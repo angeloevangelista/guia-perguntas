@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <%- include('./partials/header') %>
+</head>
+    <body>
+        <%- include('./partials/navbar.ejs') %>
+
+        <div class="container">
+
+            <h1><%= pergunta.titulo %></h1>
+            <hr>
+            
+            <p><%= pergunta.descricao %></p>
+
+            <form class="form" method="post" action="/responder">
+                <input type="hidden" name="id_pergunta" value="<%= pergunta.id %>" readonly >
+
+                <label for="" class="mt-2">Nome</label>
+                <input type="text" name="nome_usuario" class="form-control">
+                
+                <label for="" class="mt-2">Resposta</label>
+                <textarea name="resposta" id="" cols="30" rows="8" class="form-control" required></textarea>
+                
+                <button class="btn btn-primary mt-4">Responder</button>   
+            </form>
+        
+        </div>
+        
+        <%- include('./partials/footer.ejs') %>
+    </body>
+</html>
